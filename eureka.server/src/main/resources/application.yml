@@ -1,0 +1,30 @@
+#Application Name
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: root
+      password: root
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include=*
+      health:
+        show-details=always
+      shutdown:
+        enabled=true
+server:
+  port: 8761
+eureka:
+  client:
+    #telling the server not to register himself in the service registry
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0    #wait time for subsequent sync
+    enable-self-preservation: false
