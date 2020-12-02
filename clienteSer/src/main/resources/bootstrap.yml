@@ -1,0 +1,7 @@
+#spring:
+# application:
+#  name: clienteSer
+#cloud:
+#    config:
+#      uri: http://
+#      label: main
